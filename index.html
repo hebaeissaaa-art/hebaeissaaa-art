@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Heba Eissa | Fine Art</title>
+<meta name="description" content="Heba Eissa — original paintings, each one of a kind, with a certificate of authenticity.">
+<link rel="icon" href="/favicon.png">
+<meta property="og:title" content="Heba Eissa | Fine Art">
+<meta property="og:image" content="/img/hero-nay.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f2eb;--paper:#fbf8f3;--ink:#231d19;--mute:#857a70;--line:#ddd4c8;--accent:#8a5a3c;--red:#c0392b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cormorant Garamond",serif;font-size:19px;line-height:1.65}
+html[lang=ar] body{font-family:Amiri,serif;font-size:19px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.ui{font-family:Jost,sans-serif;font-weight:400;letter-spacing:.16em;text-transform:uppercase;font-size:12.5px}
+html[lang=ar] .ui{font-family:Amiri,serif;letter-spacing:0;text-transform:none;font-size:17px}
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(246,242,235,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{max-width:1240px;margin:auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:12px 24px}
+.mark{display:flex;align-items:center;gap:12px;justify-self:center}
+.mark img{height:50px}
+.mark b{font-weight:500;font-size:21px;letter-spacing:.08em}
+html[lang=ar] .mark b{letter-spacing:0}
+nav.main{display:flex;gap:26px}
+nav.main a{color:var(--mute);padding:4px 0;border-bottom:1px solid transparent}
+nav.main a.on,nav.main a:hover{color:var(--ink);border-color:var(--ink)}
+.right{justify-self:end;display:flex;align-items:center;gap:18px}
+.lang{border:1px solid var(--ink);background:none;color:var(--ink);padding:6px 12px;cursor:pointer}
+.burger{display:none;background:none;border:0;font-size:24px;cursor:pointer;color:var(--ink)}
+/* pages */
+main{min-height:70vh}
+.page{display:none;animation:fade .5s ease}
+.page.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+.wrap{max-width:1240px;margin:auto;padding:0 24px}
+.kicker{color:var(--mute);margin:0 0 10px}
+h1,h2,h3{font-weight:400;margin:0}
+.pagehead{text-align:center;padding:70px 24px 40px}
+.pagehead h1{font-size:54px;line-height:1.1}
+.pagehead p{color:var(--mute);max-width:640px;margin:14px auto 0}
+/* home */
+.hero{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:center;max-width:1240px;margin:auto;padding:64px 24px 40px}
+.hero h1{font-size:72px;line-height:1}
+.hero .sub{font-size:24px;font-style:italic;color:var(--mute);margin:16px 0 30px}
+html[lang=ar] .hero .sub{font-style:normal}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;border:1px solid var(--ink);padding:13px 24px}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn:hover{opacity:.8}
+.hero figure{margin:0;background:var(--paper);padding:22px;border:1px solid var(--line)}
+.hero figcaption{margin-top:10px;color:var(--mute);font-size:16px}
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:40px 0 0}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+.strip div>div{padding:30px 18px}
+.strip div>div+div{border-inline-start:1px solid var(--line)}
+.strip h4{font-weight:500;font-size:22px;margin:0 0 4px}
+.strip p{margin:0;color:var(--mute);font-size:17px}
+.sect{padding:70px 0 20px}
+.secthead{display:flex;justify-content:space-between;align-items:end;margin-bottom:26px;gap:20px}
+.secthead h2{font-size:40px}
+/* collection tiles */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.tile{display:block;cursor:pointer}
+.tile .im{aspect-ratio:4/5;background:var(--paper);border:1px solid var(--line);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:18px}
+.tile img{width:100%;height:100%;object-fit:contain;transition:transform .8s ease}
+.tile:hover img{transform:scale(1.04)}
+.tile h3{font-size:25px;margin-top:14px}
+.tile p{margin:2px 0 0;color:var(--mute)}
+/* works */
+.works{display:grid;grid-template-columns:repeat(2,1fr);gap:56px 46px;padding-bottom:40px}
+.work .im{background:var(--paper);border:1px solid var(--line);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:26px;cursor:zoom-in}
+.work .im img{max-height:100%;object-fit:contain}
+.work .cap{display:flex;justify-content:space-between;gap:20px;margin-top:16px}
+.work h3{font-size:27px;line-height:1.2}
+.work .alt{color:var(--mute);margin:2px 0 0}
+.work .meta{color:var(--mute);font-size:16.5px;margin-top:8px}
+.work .note{font-size:15.5px;color:var(--mute);font-style:italic;margin-top:4px}
+.price{white-space:nowrap;color:var(--accent);font-weight:600;font-size:19px}
+.sold{white-space:nowrap;color:var(--red);font-weight:600;font-size:17px;display:flex;align-items:center;gap:8px}
+.sold i{width:10px;height:10px;border-radius:50%;background:var(--red);display:inline-block}
+.back{display:inline-block;margin:30px 0 0;color:var(--mute)}
+.collnav{display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:center;margin-top:22px}
+.collnav a{color:var(--mute)}.collnav a.on{color:var(--ink);border-bottom:1px solid var(--ink)}
+/* about */
+.about{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start;max-width:1140px;margin:auto;padding:30px 24px 60px}
+.about figure{margin:0;background:var(--paper);border:1px solid var(--line);padding:20px;position:sticky;top:110px}
+.about .txt p{font-size:21px;margin:0 0 18px}
+.about .txt p:first-child::first-letter{font-size:64px;float:left;line-height:.9;padding:6px 10px 0 0}
+html[lang=ar] .about .txt p:first-child::first-letter{font-size:inherit;float:none;padding:0}
+.sig{margin-top:26px;display:flex;align-items:center;gap:14px}.sig img{height:70px}
+.facts{border-top:1px solid var(--line);margin-top:26px;padding-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px 24px}
+.facts span{display:block;color:var(--mute)}
+/* new */
+.newc{max-width:1140px;margin:auto;padding:10px 24px 70px;display:grid;grid-template-columns:1.1fr 1fr;gap:54px;align-items:center}
+.veil{aspect-ratio:4/5;background:var(--paper);border:1px solid var(--line);position:relative;overflow:hidden}
+.veil img{position:absolute;top:22%;left:50%;width:34%;transform:translateX(-50%);opacity:.18}
+.veil span{position:absolute;inset:auto 0 22% 0;text-align:center;font-size:34px;font-style:italic;color:var(--ink)}
+.date{font-size:46px;line-height:1.1;margin:6px 0 16px}
+/* contact */
+.contacts{max-width:1080px;margin:auto;padding:0 24px 80px;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.card{background:var(--paper);border:1px solid var(--line);padding:40px 36px;text-align:center}
+.card h3{font-size:30px;margin:8px 0 6px}
+.card p{color:var(--mute);margin:0 0 22px}
+.card .line{font-size:21px;display:block;margin:6px 0}
+.card .line:hover{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding:34px 24px 46px;text-align:center;color:var(--mute);font-size:16px}
+footer img{height:54px;margin:0 auto 8px;opacity:.9}
+footer nav{display:flex;justify-content:center;gap:22px;margin-bottom:12px}
+#lb{position:fixed;inset:0;background:rgba(18,14,12,.94);display:none;z-index:50;align-items:center;justify-content:center;padding:20px;cursor:zoom-out;flex-direction:column}
+#lb.on{display:flex}#lb img{max-width:100%;max-height:88vh;object-fit:contain}#lb p{color:#ddd;margin:12px 0 0}
+@media(max-width:900px){
+ .bar{grid-template-columns:auto 1fr auto;padding:10px 16px}
+ .mark{justify-self:start}.mark img{height:40px}.mark b{font-size:17px}
+ nav.main{display:none;position:absolute;top:100%;inset-inline:0;background:var(--bg);flex-direction:column;gap:0;border-bottom:1px solid var(--line)}
+ nav.main.open{display:flex}nav.main a{padding:16px;border:0;border-top:1px solid var(--line)}
+ .left{order:3}.burger{display:block}
+ .hero,.about,.newc,.contacts{grid-template-columns:1fr;gap:30px}
+ .hero{padding:36px 16px 20px}.hero h1{font-size:52px}
+ .strip .wrap{grid-template-columns:1fr}.strip div>div+div{border-inline-start:0;border-top:1px solid var(--line)}
+ .tiles{grid-template-columns:1fr 1fr;gap:18px}.tile h3{font-size:20px}
+ .works{grid-template-columns:1fr;gap:44px}
+ .pagehead{padding:46px 16px 26px}.pagehead h1{font-size:40px}
+ .wrap{padding:0 16px}.about figure{position:static}
+ .secthead h2{font-size:30px}
+}
+@media(max-width:520px){.tiles{grid-template-columns:1fr}.facts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+ <div class="left"><nav class="main ui" id="nav">
+  <a href="#/about" data-r="about" data-t="about"></a>
+  <a href="#/new" data-r="new" data-t="new"></a>
+  <a href="#/collections" data-r="collections" data-t="collections"></a>
+  <a href="#/contact" data-r="contact" data-t="contact"></a>
+ </nav></div>
+ <a class="mark" href="#/"><img src="/logo.png" alt="Heba Eissa"><b data-t="name"></b></a>
+ <div class="right"><button class="lang ui" id="lang"></button><button class="burger" id="burger" aria-label="Menu">☰</button></div>
+</div></header>
+<main>
+<section class="page" id="p-home">
+ <div class="hero">
+  <div><p class="kicker ui" data-t="fineart"></p><h1 data-t="name"></h1><p class="sub" data-t="tag"></p>
+   <div class="btns"><a class="btn solid ui" href="#/collections" data-t="viewcoll"></a><a class="btn ui" href="#/new" data-t="new"></a></div></div>
+  <figure><img src="/img/hero-nay.webp" alt="Nay — Heba Eissa"><figcaption data-t="herocap"></figcaption></figure>
+ </div>
+ <div class="strip"><div class="wrap"><div><h4 data-t="f1h"></h4><p data-t="f1"></p></div><div><h4 data-t="f2h"></h4><p data-t="f2"></p></div><div><h4 data-t="f3h"></h4><p data-t="f3"></p></div></div></div>
+ <div class="wrap sect"><div class="secthead"><h2 data-t="collections"></h2><a class="ui" href="#/collections" data-t="all"></a></div><div class="tiles" id="hometiles"></div></div>
+</section>
+<section class="page" id="p-about">
+ <div class="pagehead"><p class="kicker ui" data-t="theartist"></p><h1 data-t="about"></h1></div>
+ <div class="about">
+  <figure><img src="/img/egypt-noor-al-ain.webp" alt="Noor Al-Ain — Heba Eissa"></figure>
+  <div class="txt"><p data-t="a1"></p><p data-t="a2"></p><p data-t="a3"></p><p data-t="a4"></p>
+   <div class="facts"><div><span class="ui" data-t="k1"></span><b data-t="v1"></b></div><div><span class="ui" data-t="k2"></span><b data-t="v2"></b></div><div><span class="ui" data-t="k3"></span><b data-t="v3"></b></div><div><span class="ui" data-t="k4"></span><b data-t="v4"></b></div></div>
+   <div class="sig"><img src="/logo.png" alt=""><span data-t="signed"></span></div></div>
+ </div>
+</section>
+<section class="page" id="p-new">
+ <div class="pagehead"><p class="kicker ui" data-t="instudio"></p><h1 data-t="new"></h1></div>
+ <div class="newc"><div class="veil"><img src="/logo.png" alt=""><span data-t="soon"></span></div>
+  <div><p class="kicker ui" data-t="unveil"></p><p class="date" data-t="dec"></p><p data-t="n1"></p><p data-t="n2"></p>
+   <div class="btns" style="margin-top:24px"><a class="btn solid ui" target="_blank" rel="noopener" href="https://www.instagram.com/channel/oAlls_Av1pUbRaJM/" data-t="join"></a><a class="btn ui" href="#/collections" data-t="viewcoll"></a></div></div></div>
+</section>
+<section class="page" id="p-collections">
+ <div class="pagehead"><p class="kicker ui" data-t="works"></p><h1 data-t="collections"></h1><p data-t="collintro"></p></div>
+ <div class="wrap" style="padding-bottom:60px"><div class="tiles" id="alltiles"></div></div>
+</section>
+<section class="page" id="p-coll">
+ <div class="pagehead"><p class="kicker ui" data-t="collection"></p><h1 id="ctitle"></h1><p id="calt"></p><div class="collnav ui" id="collnav"></div></div>
+ <div class="wrap"><div class="works" id="works"></div><a class="back ui" href="#/collections" data-t="backall"></a></div>
+</section>
+<section class="page" id="p-contact">
+ <div class="pagehead"><p class="kicker ui" data-t="getintouch"></p><h1 data-t="contact"></h1><p data-t="cintro"></p></div>
+ <div class="contacts">
+  <div class="card"><p class="kicker ui" data-t="c1k"></p><h3 data-t="c1h"></h3><p data-t="c1p"></p><a class="line" href="mailto:hebaeissaaa@gmail.com">hebaeissaaa@gmail.com</a><a class="line" target="_blank" rel="noopener" href="https://www.instagram.com/t_h_e_h_e_b_a/">@t_h_e_h_e_b_a</a></div>
+  <div class="card"><p class="kicker ui" data-t="c2k"></p><h3>Eastern Spiral</h3><p data-t="c2p"></p><a class="line" target="_blank" rel="noopener" href="https://www.instagram.com/easternspiral/">@easternspiral</a><a class="btn ui" style="margin-top:14px" target="_blank" rel="noopener" href="https://ig.me/m/easternspiral" data-t="dm"></a></div>
+ </div>
+</section>
+</main>
+<footer><img src="/logo.png" alt=""><nav class="ui"><a href="#/about" data-t="about"></a><a href="#/collections" data-t="collections"></a><a href="#/contact" data-t="contact"></a></nav><span data-t="rights"></span></footer>
+<div id="lb"><img alt=""><p></p></div>
+<script>
+const DATA=[{"id": "dallah", "ar": "مجموعة الدلة التراثية", "en": "The Heritage Dallah Collection", "cover": "dallah-arjuwan", "works": [{"ar": "أرجوان", "en": "Arjuwan", "size": "100 × 100 cm · framed", "year": "2025", "price": "USD 1,000", "sold": false, "note": "", "img": "dallah-arjuwan", "w": 1000, "h": 1000}, {"ar": "بريق (ثلاث لوحات)", "en": "Bareeq — a set of three", "size": "40 × 40 cm · 30 × 40 cm × 2 · gilded frames", "year": "2025", "price": "USD 350 · 300 · 300 (each sold individually)", "sold": false, "note": "", "img": "dallah-bareeq-a-set-of-three", "w": 1000, "h": 398}, {"ar": "زفاف الدلة", "en": "The Wedding of the Dallah", "size": "60 × 90 cm", "year": "2026", "price": "USD 900", "sold": false, "note": "", "img": "dallah-the-wedding-of-the-dallah", "w": 771, "h": 1000}, {"ar": "بحر القهوة", "en": "Sea of Coffee", "size": "122 × 79 cm · wooden frame", "year": "2025", "price": "USD 900", "sold": false, "note": "", "img": "dallah-sea-of-coffee", "w": 754, "h": 494}, {"ar": "ثنائية بحر القهوة", "en": "Sea of Coffee — Diptych", "size": "2 × 50 × 60 cm · sold together", "year": "2025", "price": "USD 800 (the pair)", "sold": false, "note": "Exhibited at the Saudi National Day exhibition, SASCA Dammam", "img": "dallah-sea-of-coffee-diptych", "w": 1000, "h": 582}, {"ar": "سرمد الليل", "en": "Sarmad al-Layl", "size": "50 × 70 cm · framed", "year": "2022", "price": "", "sold": true, "note": "", "img": "dallah-sarmad-al-layl", "w": 496, "h": 628}]}, {"id": "egypt", "ar": "مجموعة التراث المصري", "en": "The Egyptian Heritage Collection", "cover": "egypt-noor-al-ain", "works": [{"ar": "نور العين", "en": "Noor Al-Ain", "size": "85 × 85 cm · acrylic", "year": "2026", "price": "USD 900", "sold": false, "note": "", "img": "egypt-noor-al-ain", "w": 1000, "h": 1000}, {"ar": "قلبي برج حمام", "en": "My Heart, a Dovecote", "size": "90 × 60 cm", "year": "2025", "price": "USD 900", "sold": false, "note": "", "img": "egypt-my-heart-a-dovecote", "w": 1200, "h": 796}]}, {"id": "muttasila", "ar": "مجموعة متصلة", "en": "The Muttasila Collection", "cover": "muttasila-meeting-of-wings", "works": [{"ar": "ثنائية مرآة الروح", "en": "Mirror of the Soul — Diptych", "size": "2 × 60 × 50 cm · antique blue frames", "year": "2025", "price": "", "sold": true, "note": "", "img": "muttasila-mirror-of-the-soul-diptych", "w": 1300, "h": 731}, {"ar": "أنا بانتظارك", "en": "I Am Waiting for You", "size": "30 × 40 cm · fine frame", "year": "2019", "price": "USD 400", "sold": false, "note": "", "img": "muttasila-i-am-waiting-for-you", "w": 1000, "h": 1240}, {"ar": "لقاء الأجنحة", "en": "Meeting of Wings", "size": "90 × 120 cm", "year": "2025", "price": "USD 1,200", "sold": false, "note": "", "img": "muttasila-meeting-of-wings", "w": 630, "h": 800}]}, {"id": "divine", "ar": "متصلة (أسماء الله الحسنى)", "en": "Muttasila — The Divine Names", "cover": "divine-nay", "works": [{"ar": "تركواز", "en": "Turquoise", "size": "50 × 70 cm", "year": "2026", "price": "", "sold": true, "note": "", "img": "divine-turquoise", "w": 751, "h": 1100}, {"ar": "سعة", "en": "Sa'a", "size": "50 × 60 cm · blue frame", "year": "2026", "price": "USD 600", "sold": false, "note": "", "img": "divine-sa-a", "w": 834, "h": 967}, {"ar": "التسامي", "en": "Al-Tasami", "size": "100 × 50 cm · blue frame", "year": "2026", "price": "", "sold": true, "note": "", "img": "divine-al-tasami", "w": 1421, "h": 736}, {"ar": "ثنائية البنفسج", "en": "Purple Duality", "size": "2 × 90 × 45 cm · blue frames", "year": "", "price": "", "sold": true, "note": "", "img": "divine-purple-duality", "w": 768, "h": 795}, {"ar": "ناي", "en": "Nay", "size": "130 × 90 cm", "year": "2026", "price": "USD 1,300", "sold": false, "note": "", "img": "divine-nay", "w": 1184, "h": 912}]}, {"id": "rose", "ar": "مجموعة أن تكوني وردة", "en": "To Be a Rose", "cover": "rose-magnolia", "works": [{"ar": "الماغنوليا", "en": "Magnolia", "size": "90 × 70 cm · 100 × 80 cm framed", "year": "2022", "price": "USD 950", "sold": false, "note": "", "img": "rose-magnolia", "w": 711, "h": 1000}, {"ar": "الشمعة", "en": "The Candle", "size": "50 × 60 cm · gilded frame", "year": "2021", "price": "USD 550", "sold": false, "note": "", "img": "rose-the-candle", "w": 740, "h": 875}, {"ar": "ورود الربيع", "en": "Spring Roses", "size": "60 × 80 cm · oil", "year": "2024", "price": "USD 600", "sold": false, "note": "", "img": "rose-spring-roses", "w": 718, "h": 979}, {"ar": "ثلاثية أن تكوني وردة", "en": "To Be a Rose — Triptych", "size": "Oil on canvas", "year": "2025", "price": "", "sold": true, "note": "", "img": "rose-to-be-a-rose-triptych", "w": 1000, "h": 563}, {"ar": "شموس البيت", "en": "Sunflowers of the House", "size": "60 × 90 cm", "year": "2025", "price": "USD 900", "sold": false, "note": "", "img": "rose-sunflowers-of-the-house", "w": 663, "h": 1000}]}, {"id": "dolls", "ar": "مجموعة الدمى العتيقة", "en": "The Antique Dolls Collection", "cover": "dolls-the-arab-doll", "works": [{"ar": "الدمية العربية", "en": "The Arab Doll", "size": "50 × 70 cm · acrylic", "year": "2026", "price": "USD 500", "sold": false, "note": "", "img": "dolls-the-arab-doll", "w": 867, "h": 1300}, {"ar": "مجموعة الدمى العتيقة", "en": "Antique Dolls", "size": "80 × 100 cm · oil", "year": "2023", "price": "USD 900", "sold": false, "note": "", "img": "dolls-antique-dolls", "w": 1300, "h": 867}, {"ar": "الدمى الروسية (ثنائية)", "en": "Russian Dolls — Diptych", "size": "2 × 40 × 50 cm · sold together", "year": "2018", "price": "USD 750 (the pair)", "sold": false, "note": "", "img": "dolls-russian-dolls-diptych", "w": 1300, "h": 799}, {"ar": "دميتي", "en": "My Doll", "size": "40 × 30 cm · oil", "year": "2022", "price": "USD 300", "sold": false, "note": "", "img": "dolls-my-doll", "w": 1300, "h": 1300}, {"ar": "دميتها", "en": "Her Doll", "size": "50 × 70 cm · oil · framed", "year": "2022", "price": "USD 600", "sold": false, "note": "", "img": "dolls-her-doll", "w": 975, "h": 1300}]}];
+const T={
+en:{name:"Heba Eissa",fineart:"Fine Art",tag:"Original paintings — each one of a kind.",about:"About",new:"New Collection",collections:"Collections",contact:"Contact",viewcoll:"View the collections",
+herocap:"Nay · 130 × 90 cm · 2026",f1h:"One of a kind",f1:"Every painting is a single original with a signed certificate of authenticity.",f2h:"Insured shipping",f2:"From the studio to anywhere in the world, with a packing video and tracking.",f3h:"Secure payment",f3:"Prices in US dollars; framed works travel with their frame.",all:"All collections →",
+theartist:"The Artist",a1:"Heba Eissa is a fine artist and art educator. A graduate of the Faculty of Fine Arts, she paints in a language of her own: classical expressionism, surreal fantasy rooted in Arab heritage, and expressive still life.",
+a2:"Her canvases gather faces with wide, contemplative eyes; heritage objects that carry memory — the dallah, the dovecote, the antique doll; the calligraphy of the Divine Names; and painted clocks that hold her idea of time, where each moment is lived in all its depth.",
+a3:"She works in layered mixed media — metallic acrylic, fine acrylic and oil — building texture and gold that change with the light of the room.",
+a4:"Since 2017 her drawings have also illustrated novels and story collections by Arab authors.",
+k1:"Practice",v1:"Painting · Illustration · Teaching",k2:"Media",v2:"Mixed media on canvas",k3:"Styles",v3:"Expressionism · Heritage surrealism",k4:"Every work",v4:"Original · Certified",signed:"Heba Eissa — the artist's seal",
+instudio:"In the studio",unveil:"Unveiling",dec:"December 2026",soon:"Coming soon",n1:"A new body of work is being completed in the studio now.",n2:"Collectors on our list see every new painting first, on video, before it is shown publicly.",join:"Join the collectors' list",
+works:"The works",collintro:"Each collection is a world of its own. Select one to see its paintings, sizes and availability.",collection:"Collection",backall:"← All collections",
+pieces:n=>n+(n==1?" work":" works"),acquired:"Acquired",
+getintouch:"Get in touch",cintro:"For acquisitions, a private video of a painting, or commissions.",c1k:"Direct contact",c1h:"With the artist",c1p:"Write to Heba Eissa directly.",c2k:"Artist management & acquisitions",c2p:"Eastern Spiral manages the artist's works, acquisitions and shipping.",dm:"Send a message",
+rights:"© Heba Eissa · All rights reserved",langbtn:"العربية"},
+ar:{name:"هبة عيسى",fineart:"فن تشكيلي",tag:"لوحات أصلية، كل قطعة فيها فريدة من نوعها.",about:"عن الفنانة",new:"المجموعة الجديدة",collections:"المجموعات",contact:"تواصل معنا",viewcoll:"استعرضوا المجموعات",
+herocap:"ناي · 130 × 90 سم · 2026",f1h:"قطعة فريدة",f1:"كل لوحة أصلية واحدة، ومعها شهادة أصالة موقّعة.",f2h:"شحن مؤمَّن",f2:"من المرسم لأي مكان بالعالم، مع فيديو للتغليف وتتبّع للشحنة.",f3h:"دفع إلكتروني آمن",f3:"الأسعار بالدولار الأمريكي، واللوحات المؤطّرة تُقتنى مع إطارها.",all:"كل المجموعات ←",
+theartist:"الفنانة",a1:"هبة عيسى فنانة تشكيلية ومعلّمة فن، تخرّجت في كلية الفنون الجميلة، وترسم بلغة خاصة بها: التعبيرية الكلاسيكية، والفانتازيا السريالية المتجذّرة في التراث العربي، والطبيعة الصامتة التعبيرية.",
+a2:"تجمع لوحاتها وجوهاً بعيون واسعة متأمّلة، وقطعاً من التراث تحمل الذاكرة — الدلّة، وبرج الحمام، والدمية العتيقة — وخطّ أسماء الله الحسنى، وساعات مرسومة تحمل فكرتها عن الزمن، حيث تُعاش كل لحظة بكامل عمقها.",
+a3:"تعمل بوسائط متعدّدة على طبقات — أكريليك معدني وأكريليك عالي الجودة وألوان زيتية — فتبني ملمساً وذهباً يتبدّلان مع ضوء المكان.",
+a4:"ومنذ ٢٠١٧ ترافق رسوماتها روايات ومجموعات قصصية لكتّاب عرب.",
+k1:"الممارسة",v1:"رسم · رسوم كتب · تعليم",k2:"الخامات",v2:"وسائط متعدّدة على كانفاس",k3:"الأسلوب",v3:"تعبيرية · سريالية تراثية",k4:"كل عمل",v4:"أصلي · بشهادة أصالة",signed:"هبة عيسى — ختم الفنانة",
+instudio:"في المرسم",unveil:"موعد الكشف",dec:"ديسمبر ٢٠٢٦",soon:"قريباً",n1:"مجموعة أعمال جديدة تكتمل الآن في المرسم.",n2:"المقتنون في قائمتنا يشاهدون كل لوحة جديدة أولاً بالفيديو، قبل عرضها للجميع.",join:"انضمّوا لقائمة المقتنين",
+works:"الأعمال",collintro:"لكل مجموعة عالمها. اختاروا مجموعة لتشاهدوا لوحاتها ومقاساتها وإتاحتها.",collection:"مجموعة",backall:"→ كل المجموعات",
+pieces:n=>n+" "+(n<=10&&n>2?"أعمال":"عمل"),acquired:"مُقتناة",
+getintouch:"يسعدنا تواصلكم",cintro:"للاقتناء، أو لمشاهدة لوحة بالفيديو، أو للأعمال الخاصة.",c1k:"تواصل مباشر",c1h:"مع الفنانة",c1p:"راسلوا هبة عيسى مباشرة.",c2k:"إدارة أعمال الفنانة والاقتناء",c2p:"Eastern Spiral تدير أعمال الفنانة والاقتناء والشحن.",dm:"أرسلوا رسالة",
+rights:"© هبة عيسى · جميع الحقوق محفوظة",langbtn:"English"}};
+let L='en';try{L=localStorage.getItem('lang')||(navigator.language||'').startsWith('ar')&&'ar'||'en'}catch(e){}
+const $=s=>document.querySelector(s);
+function tile(c){return `<a class="tile" href="#/collections/${c.id}"><div class="im"><img loading="lazy" src="/img/${c.cover}-s.webp" alt="${c.en}"></div><h3>${L=='ar'?c.ar:c.en}</h3><p class="ui">${T[L].pieces(c.works.length)}</p></a>`}
+function renderColl(id){const c=DATA.find(x=>x.id==id)||DATA[0];
+ $('#ctitle').textContent=L=='ar'?c.ar:c.en;$('#calt').textContent=L=='ar'?c.en:c.ar;
+ $('#collnav').innerHTML=DATA.map(x=>`<a class="${x.id==c.id?'on':''}" href="#/collections/${x.id}">${L=='ar'?x.ar:x.en}</a>`).join('');
+ $('#works').innerHTML=c.works.map(w=>`<article class="work"><div class="im" data-full="/img/${w.img}.webp" data-cap="${(L=='ar'?w.ar:w.en)}"><img loading="lazy" src="/img/${w.img}-s.webp" width="${w.w}" height="${w.h}" alt="${w.en} — ${w.ar} · Heba Eissa"></div>
+ <div class="cap"><div><h3>${L=='ar'?w.ar:w.en}</h3><p class="alt">${L=='ar'?w.en:w.ar}</p><p class="meta" dir="ltr" style="text-align:start">${[w.size,w.year].filter(Boolean).join(' · ')}</p>${w.note?`<p class="note" dir="ltr">${w.note}</p>`:''}</div>
+ <div>${w.sold?`<span class="sold"><i></i>${T[L].acquired}</span>`:`<span class="price" dir="ltr">${w.price}</span>`}</div></div></article>`).join('');
+ document.querySelectorAll('.work .im').forEach(el=>el.onclick=()=>{$('#lb img').src=el.dataset.full;$('#lb p').textContent=el.dataset.cap;$('#lb').classList.add('on')});}
+function route(){const h=location.hash.replace(/^#\/?/,'');const [p,id]=h.split('/');const pg=p||'home';
+ document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));
+ if(pg=='collections'&&id){$('#p-coll').classList.add('on');renderColl(id)}else{($('#p-'+pg)||$('#p-home')).classList.add('on')}
+ document.querySelectorAll('nav.main a').forEach(a=>a.classList.toggle('on',a.dataset.r==pg));$('#nav').classList.remove('open');window.scrollTo(0,0)}
+function apply(){document.documentElement.lang=L;document.documentElement.dir=L=='ar'?'rtl':'ltr';
+ document.querySelectorAll('[data-t]').forEach(el=>{const v=T[L][el.dataset.t];if(typeof v=='string')el.textContent=v});
+ $('#lang').textContent=T[L].langbtn;$('#hometiles').innerHTML=DATA.slice(0,3).map(tile).join('');$('#alltiles').innerHTML=DATA.map(tile).join('');
+ document.title=L=='ar'?'هبة عيسى | فن تشكيلي':'Heba Eissa | Fine Art';route()}
+$('#lang').onclick=()=>{L=L=='ar'?'en':'ar';try{localStorage.setItem('lang',L)}catch(e){}apply()};
+$('#burger').onclick=()=>$('#nav').classList.toggle('open');
+$('#lb').onclick=()=>$('#lb').classList.remove('on');document.addEventListener('keydown',e=>{if(e.key=='Escape')$('#lb').classList.remove('on')});
+window.addEventListener('hashchange',route);apply();
+</script>
+</body></html>

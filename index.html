@@ -140,21 +140,25 @@ footer nav{display:flex;justify-content:center;gap:22px;margin-bottom:12px}
 #lb.on{display:block}
 #lb .lbin{max-width:1100px;margin:0 auto;padding:64px 20px 56px}
 #lb .x{position:fixed;top:14px;inset-inline-end:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(239,231,220,.35);background:rgba(20,15,12,.6);color:#efe7dc;font-size:24px;line-height:1;cursor:pointer;z-index:2}
-#lb .main{display:block;margin:0 auto;max-width:100%;max-height:74vh;object-fit:contain;cursor:zoom-in;box-shadow:0 10px 40px rgba(0,0,0,.45)}
-#lb .info{text-align:center;margin:22px auto 0}
+#lb .sl{position:relative;direction:ltr}
+#lb .tr{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+#lb .tr::-webkit-scrollbar{display:none}
+#lb .sd{flex:0 0 100%;scroll-snap-align:center;display:flex;align-items:center;justify-content:center;height:74vh}
+#lb .sd img{max-width:100%;max-height:100%;object-fit:contain;cursor:zoom-in;box-shadow:0 10px 40px rgba(0,0,0,.45)}
+#lb .nv{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:1px solid rgba(239,231,220,.35);background:rgba(20,15,12,.55);color:#efe7dc;font-size:22px;cursor:pointer}
+#lb .nv.p{left:6px}#lb .nv.n{right:6px}#lb .nv[disabled]{opacity:.25;cursor:default}
+#lb .dots{display:flex;justify-content:center;gap:10px;margin-top:16px;direction:ltr}
+#lb .dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:rgba(239,231,220,.3);cursor:pointer}
+#lb .dots button.on{background:#d8b48a;transform:scale(1.25)}
+#lb .lab{text-align:center;color:#b9a998;font-size:14px;letter-spacing:.12em;margin-top:10px;min-height:20px}
+#lb .info{text-align:center;margin:18px auto 0}
 #lb .info h3{font-size:30px;font-weight:400;margin:0;color:#f4ece1}html[lang=ar] #lb .info h3{font-size:44px;line-height:1.1}
 #lb .info .alt{color:#b9a998;margin:2px 0 0}
 #lb .info .meta{color:#b9a998;font-size:16px;margin:8px 0 0}
 #lb .info .price{color:#d8b48a}
-#lb .dh{display:flex;align-items:center;gap:14px;margin:40px 0 16px;color:#b9a998;font-size:15px;letter-spacing:.12em;text-transform:uppercase}
-#lb .dh:before,#lb .dh:after{content:"";flex:1;height:1px;background:rgba(239,231,220,.18)}
-#lb .det{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-#lb .det button{padding:0;border:0;background:#000;aspect-ratio:1/1;overflow:hidden;cursor:zoom-in}
-#lb .det img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
-#lb .det button:hover img{transform:scale(1.04)}
 #zv{position:fixed;inset:0;z-index:60;background:#0e0b09;display:none;align-items:center;justify-content:center;cursor:zoom-out;padding:12px}
 #zv.on{display:flex}#zv img{max-width:100%;max-height:100%;object-fit:contain}
-@media(max-width:700px){#lb .det{grid-template-columns:1fr 1fr;gap:10px}#lb .lbin{padding:60px 14px 40px}#lb .main{max-height:62vh}#lb .info h3{font-size:25px}}
+@media(max-width:700px){#lb .lbin{padding:70px 0 40px}#lb .sd{height:auto;padding:0 10px}#lb .sd img{max-height:64vh}#lb .nv{display:none}#lb .info{padding:0 14px}}
 @media(max-width:900px){
  .bar{grid-template-columns:auto 1fr auto;padding:10px 16px}
  .mark{justify-self:start}.mark img{height:40px}.mark b{font-size:17px}
@@ -306,12 +310,19 @@ function renderColl(id){const c=DATA.find(x=>x.id==id)||DATA[0];
  <div>${w.sold?`<span class="sold"><i></i>${T[L].acquired}</span>`:`<span class="price" dir="ltr">${w.price}</span>`}</div></div></article>`).join('');
  document.querySelectorAll('.work .im').forEach((el,i)=>el.onclick=()=>openWork(c.works[i]));}
 function openWork(w){const n=w.d||0,hd=w.hd?`/img/hd/${w.img}.webp`:`/img/${w.img}.webp`;
- $('#lb .lbin').innerHTML=`<img class="main" src="/img/${w.img}.webp" data-z="${hd}" alt="${w.en} — ${w.ar} · Heba Eissa">
+ const S=[{src:`/img/${w.img}.webp`,z:hd,lab:''}].concat(Array.from({length:n},(_,k)=>({src:`/img/d/${w.img}-${k+1}.webp`,z:`/img/d/${w.img}-${k+1}.webp`,lab:`${T[L].details} · ${k+1}/${n}`})));
+ $('#lb .lbin').innerHTML=`<div class="sl"><div class="tr">${S.map((x,i)=>`<div class="sd"><img src="${x.src}" data-z="${x.z}" ${i?'loading="lazy"':''} alt="${w.en} — ${w.ar}${i?' · detail '+i:''} · Heba Eissa"></div>`).join('')}</div>
+ ${S.length>1?`<button class="nv p" aria-label="Previous">‹</button><button class="nv n" aria-label="Next">›</button>`:''}</div>
+ ${S.length>1?`<div class="dots">${S.map((_,i)=>`<button aria-label="${i+1}"></button>`).join('')}</div>`:''}<div class="lab"></div>
  <div class="info"><h3>${L=='ar'?w.ar:w.en}</h3><p class="alt">${L=='ar'?w.en:w.ar}</p><p class="meta" dir="ltr">${[w.size,w.year].filter(Boolean).join(' · ')}</p>
- <p class="meta">${w.sold?`<span class="sold"><i></i>${T[L].acquired}</span>`:`<span class="price" dir="ltr">${w.price}</span>`}</p></div>
- ${n?`<div class="dh">${T[L].details}</div><div class="det">${Array.from({length:n},(_,k)=>`<button data-z="/img/d/${w.img}-${k+1}.webp" aria-label="${T[L].details} ${k+1}"><img loading="lazy" src="/img/d/${w.img}-${k+1}-s.webp" alt="${w.en} — detail ${k+1}"></button>`).join('')}</div>`:''}`;
- $('#lb').scrollTop=0;$('#lb').classList.add('on');document.body.style.overflow='hidden';
- $('#lb').querySelectorAll('[data-z]').forEach(b=>b.onclick=e=>{e.stopPropagation();$('#zv img').src=b.dataset.z;$('#zv').classList.add('on')});}
+ <p class="meta">${w.sold?`<span class="sold"><i></i>${T[L].acquired}</span>`:`<span class="price" dir="ltr">${w.price}</span>`}</p></div>`;
+ const tr=$('#lb .tr'),dots=[...document.querySelectorAll('#lb .dots button')],pv=$('#lb .nv.p'),nx=$('#lb .nv.n');
+ const cur=()=>Math.round(tr.scrollLeft/tr.clientWidth),go=i=>tr.scrollTo({left:i*tr.clientWidth});
+ const upd=()=>{const i=cur();dots.forEach((d,k)=>d.classList.toggle('on',k==i));$('#lb .lab').textContent=S[i]?S[i].lab:'';if(pv){pv.disabled=i==0;nx.disabled=i==S.length-1}};
+ tr.onscroll=()=>{clearTimeout(tr._t);tr._t=setTimeout(upd,60)};dots.forEach((d,k)=>d.onclick=()=>go(k));
+ if(pv){pv.onclick=()=>go(cur()-1);nx.onclick=()=>go(cur()+1)}
+ $('#lb').querySelectorAll('[data-z]').forEach(b=>b.onclick=e=>{e.stopPropagation();$('#zv img').src=b.dataset.z;$('#zv').classList.add('on')});
+ $('#lb').scrollTop=0;$('#lb').classList.add('on');document.body.style.overflow='hidden';tr.scrollLeft=0;upd();}
 function closeLb(){$('#lb').classList.remove('on');document.body.style.overflow=''}
 function route(){if(typeof closeLb=='function')closeLb();const h=location.hash.replace(/^#\/?/,'');const [p,id]=h.split('/');const pg=p||'home';
  document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));
@@ -324,7 +335,7 @@ function apply(){document.documentElement.lang=L;document.documentElement.dir=L=
 $('#lang').onclick=()=>{L=L=='ar'?'en':'ar';try{localStorage.setItem('lang',L)}catch(e){}apply()};
 $('#burger').onclick=()=>$('#nav').classList.toggle('open');
 $('#lb .x').onclick=closeLb;$('#lb').onclick=e=>{if(e.target.id=='lb'||e.target.classList.contains('lbin'))closeLb()};$('#zv').onclick=()=>$('#zv').classList.remove('on');
-document.addEventListener('keydown',e=>{if(e.key=='Escape'){if($('#zv').classList.contains('on'))$('#zv').classList.remove('on');else closeLb()}});
+document.addEventListener('keydown',e=>{if($('#lb').classList.contains('on')&&!$('#zv').classList.contains('on')&&(e.key=='ArrowRight'||e.key=='ArrowLeft')){const b=$(e.key=='ArrowRight'?'#lb .nv.n':'#lb .nv.p');if(b&&!b.disabled)b.click()}if(e.key=='Escape'){if($('#zv').classList.contains('on'))$('#zv').classList.remove('on');else closeLb()}});
 let si=0,timer;const stage=document.getElementById('stage'),dots=document.getElementById('dots');
 stage.innerHTML=SLIDES.map((x,i)=>`<img src="/img/${x[0]}.webp" alt="${x[1]} — Heba Eissa" ${i?'loading="lazy"':''}>`).join('');
 dots.innerHTML=SLIDES.map((x,i)=>`<button aria-label="${x[1]}"></button>`).join('');
